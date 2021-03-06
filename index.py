@@ -6,7 +6,8 @@ import random
 import os
 import json
 #helosadiwjaosdwa
-
+#sjsjwjsjjssnsnsn
+#jsjsksks
 if os.path.exists(os.getcwd() + "/config.json"):
 
     with open("./config.json") as f:
