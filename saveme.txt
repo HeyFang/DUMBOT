@@ -1,0 +1,42 @@
+#@client.command()
+#async def clear(ctx,	amount=5):
+#	await ctx.channel.purge(limit=amount)
+
+#@client.command()
+#async def status(ctx,	status_string='blue whale'):
+#	await client.change_presence(status=discord.Status.idle,activity=discord.Game(status_string))
+#	_embed= discord.Embed( description=f'Bot Status Changed to "{status_string}"', color = discord.Color.green())
+#	await ctx.send(embed = _embed)
+
+
+#@client.command()
+#async def mention(ctx,	Member):
+#	await ctx.send(f'{Member}')
+
+#@client.command()
+#async def hello(ctx):
+#    embed= discord.Embed(title=None, value="hello dumbo..")
+
+#    await ctx.send(embed=embed) 
+#@client.command(aliases=['howdumb'])
+#async def dumb_permcent(ctx,	Member):
+#	howdumb = random.randint(0,100)
+#	await ctx.send(f'{Member} is {howdumb} % dumb lol')
+
+
+@client.command()
+async def hello(ctx):
+	await ctx.send("Hi checking for the dumbos!")
+	
+@client.command()
+async def dumbo(ctx):
+ await ctx.send('hello dumbo')
+ 
+#@client.command()
+#async def on_member_join(member,ctx):
+#	ctx.send(f'{member}')
+#	
+#@client.command()
+#async def on_member_remove(ctx,member):
+#	ctx.send(f'{member} why leave :(')
+
