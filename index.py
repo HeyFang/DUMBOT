@@ -5,7 +5,7 @@ from itertools import cycle
 import random
 import os
 import json
-#helosadiwjaosdwa
+
 
 if os.path.exists(os.getcwd() + "/config.json"):
 
