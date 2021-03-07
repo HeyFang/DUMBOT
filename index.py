@@ -75,10 +75,7 @@ async def do_activity(ctx,*,activity):
     color = discord.Color.green())
     
     await ctx.send(embed=em)
-    
-    
 
-# xD copied from alice
 @bot.command()
 async def ping(ctx):
     """ Bot latency cheack """

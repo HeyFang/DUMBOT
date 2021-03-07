@@ -35,24 +35,5 @@ class info(commands.Cog):
 
 
 
-
-
-
-
-
-
-#avatar
-    @commands.command(name='avatar', aliases=['Avatar', 'av'])
-    async def av_cmd(self, ctx, user: discord.Member):
-        em = discord.Embed(
-                color=0x11aaf5,
-            title = f"{user}"
-        )
-        em.set_image(url=f"{user.avatar_url}")
-        await ctx.send(embed=em)
-
-
-
-
 def setup(bot):
     bot.add_cog(info(bot))
