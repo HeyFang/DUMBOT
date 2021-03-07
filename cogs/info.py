@@ -10,9 +10,9 @@ class info(commands.Cog):
         self.bot = bot
 
 #cmd whois/user 
-    @commands.command(aliases=['info','user'])
+    @commands.command(aliases=['user'])
     async def whois(self, ctx, member : discord.Member):
-        embed = discord.Embed(title = member.name , description = member.mention , color = 0x18f2f9)
+        embed = discord.Embed(title = member.name , description = member.mention ,	color=0x11aaf5)
         embed.add_field(name = "ID", value = member.id , inline = True )
         embed.add_field(name="Created Account On:", value=member.created_at.strftime("%a, %#d %B %Y, %I:%M  UTC"))
         embed.set_thumbnail(url = member.avatar_url)
@@ -45,7 +45,7 @@ class info(commands.Cog):
     @commands.command(name='avatar', aliases=['Avatar', 'av'])
     async def av_cmd(self, ctx, user: discord.Member):
         em = discord.Embed(
-                color = 0x18f2f9,
+                color=0x11aaf5,
             title = f"{user}"
         )
         em.set_image(url=f"{user.avatar_url}")

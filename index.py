@@ -24,7 +24,7 @@ prefix = configData["Prefix"]
 
 
 bot = commands.Bot(command_prefix=prefix)
-bot.remove_command("help")
+
 
 
 
