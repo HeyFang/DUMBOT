@@ -1,19 +1,20 @@
 import discord
 from discord.ext import commands, tasks
-
+from time import sleep
 
 
 
 
 filtered_words = ['kamine', 'bitch', 'xxx', 'erotic', 'shit', 'bra', 'nipple', 'jhaat', 'mc', 'bhosdika', 'baap', 'aulad',
- 'wtf', 'chood', 'chhod', 'bhadwe', 'bhadve', 'behnchod', 'gaand', 'baap', 'mf', 'fuck', 'mc', 'bc', 'lawde', 'chutiya',
+ 'wtf', 'chood', 'chhod', 'bhadwe', 'bhadve', 'behnchod', 'gaand', 'baap', 'mf', 'fuck', 'mc', 'bc', 'lawde', 'chutiya'
   'mother', 'laude', 'chutiye', 'maderchod', 'maderchhod', 'maderchood', 'madarchod', 'madarchhod', 'chut', 'bhen',
-   'bsdk', 'kaminey', 'gaand','gand', 'tatti', 'pennis', 'fucker', 'madarchod', 'machod', 'chood', 'machod', 'fuck', 'fck',
+   'bsdk', 'kaminey', 'gaand','gand', 'tatti', 'pennis', 'fucker', 'madarchod', 'machod', 'chood', 'machod', 'fuck', 'fck'
     'fkuc', 'fuk', 'sex', 'sexy', 'nigga','asshole', 'bc', 'ass', 'fuckoff', 'cock', 'hardcore', 'leabian', 'motherfuck',
-     'lund', 'dick', 'dickhead', 'nigga', 'orgasm', 'porn', 'slut', 'viagra', 'whore', 'dildo', 'pussy', 'piss', 'hijde',
+     'lund', 'dick', 'dickhead', 'nigga', 'orgasm', 'porn', 'slut', 'viagra', 'whore', 'dildo', 'pussy', 'piss', 'hijde'
       'madar', 'madarchodd', 'chodd', 'randi', 'randiii', 'lund', 'lundd', 'lode', 'laude', 'chuss', 'land', 'choot',
        'chut', 'maa', 'randy', 'madarchodd', 'nanga', 'nangi', 'benchod', 'bancho', 'behnchod', 'gaand', 'lundd', 'shit',
-        'ass', 'asshole', 'ass', 'asa', 'ass', 'asshole', 'ahole', 'anal', 'anal impaler', 'anal leakage', 'analprobe',
+        'ass', 'asshole', 'ass', 'asa', 'ass', 'asshole', 'ahole', 'anal', 'anal impaler', 'anal leakage', 'analprobe']
+filtered_words2 = [
          'anus', 'arsehole', 'ass', 'ass fuck', 'ass fuck', 'ass hole', 'assbag', 'assbandit', 'assbang', 'assbanged',
           'assbanger', 'assbangs', 'assbite', 'assclown', 'asscock', 'asscracker', 'asses', 'assface', 'assfaces',
            'assfuck', 'assfucker', 'assfucker', 'assfukka', 'assgoblin', 'asshole', 'asshat', 'asshat', 'asshead',
@@ -30,7 +31,8 @@ filtered_words = ['kamine', 'bitch', 'xxx', 'erotic', 'shit', 'bra', 'nipple', '
               'butt fuck', 'butt fuck', 'butt plug', 'buttcheeks', 'buttfuck', 'buttfucka', 'buttfucker', 'butthole', 
               'buttmuch', 'buttmunch', 'buttpirate', 'buttplug', 'cock', 'cock', 'cunt', 'cock', 'cock', 'cocksucker', 
               'chichi man', 'chick with a dick', 'childfucker', 'chode', 'chodes', 'clit', 'clit licker', 'clit licker', 
-              'clitface', 'clitfuck', 'clitoris', 'clitorus', 'clits', 'clitty', 'clitty litter', 'clitty litter', 
+              'clitface', 'clitfuck', 'clitoris', 'clitorus', 'clits', 'clitty', 'clitty litter', 'clitty litter']
+filtered_words3 = [
               'clusterfuck', 'cnut', 'cocain', 'cocaine', 'coccydynia', 'cock', 'cock', 'cock pocket', 'cock pocket', 
               'cock snot', 'cock snot', 'cock sucker', 'cockass', 'cockbite', 'cockblock', 'cockburger', 'cockeye', 
               'cockface', 'cockfucker', 'cockhead', 'cockholster', 'cockjockey', 'cockknocker', 'cockknoker', 
@@ -54,7 +56,8 @@ filtered_words = ['kamine', 'bitch', 'xxx', 'erotic', 'shit', 'bra', 'nipple', '
               'dicksucking', 'dicktickler', 'dickwad', 'dildo', 'dildos', 'dog style', 'dogfucker', 'doggie style', 
               'doggiestyle', 'doggiestyle', 'doggin', 'dogging', 'doggy style', 'doggystyle', 'doggystyle', 
               'double penetration', 'douche', 'douche', 'dumass', 'dumb ass', 'dumbass', 'dumbasses', 'Dumbcunt', 
-              'dumbfuck', 'dumbshit', 'dummy', 'dumshit', 'eat a dick', 'eat a dick', 'eat hair pie', 'eat hair pie', 
+              'dumbfuck', 'dumbshit', 'dummy', 'dumshit', 'eat a dick', 'eat a dick', 'eat hair pie', 'eat hair pie']
+filtered_words4 = [
               'eat my ass', 'ejaculate', 'ejaculated', 'ejaculates', 'ejaculates', 'ejaculating', 'ejaculating', 
               'ejaculatings', 'ejaculation', 'ejakulate', 'erect', 'erection', 'erotic', 'erotism', 'f u c k', 
               'f u c k e r', 'fuck', 'fuck', 'fack', 'fag', 'fagbag', 'fagfucker', 'fagg', 'fagged', 'fagging', 
@@ -80,7 +83,8 @@ filtered_words = ['kamine', 'bitch', 'xxx', 'erotic', 'shit', 'bra', 'nipple', '
                'jack off', 'jackass', 'jackasses', 'jackhole', 'jackoff', 'jackoff', 'jaggi', 'jagoff', 'jail bait', 'jailbait', 
                'jap', 'japs', 'jelly donut', 'jerk', 'jerk off', 'jerkoff', 'jerkass', 'jerked', 'jerkoff', 'jerkoff', 'kock', 
                'kondum', 'kondums', 'kooch', 'kooches', 'kootch', 'kraut', 'kum', 'kummer', 'kumming', 'kums', 'kunilingus', 
-               'kunja', 'kunt', 'lesbian', 'lesbians', 'lesbo', 'lesbos', 'lez', 'lezza', 'lesbo', 'lovemaking', 'lube', 'lust', 
+               'kunja', 'kunt', 'lesbian', 'lesbians', 'lesbo', 'lesbos', 'lez', 'lezza', 'lesbo', 'lovemaking', 'lube', 'lust']
+filtered_words5 = [
                'lusting', 'lusty', 'mofo', 'mofo', 'masterbate', 'masterbe', 'masterbate', 'mafugly', 'mafugly', 'make me come', 
                'male squirting', 'mams', 'masterbe', 'masterbate', 'masterbate', 'masterbate', 'masterbate', 'masterbate', 
                'masterbating', 'masterbation', 'masterbations', 'masturbate', 'masturbating', 'masturbation', 'mcfagget', 
@@ -100,7 +104,8 @@ filtered_words = ['kamine', 'bitch', 'xxx', 'erotic', 'shit', 'bra', 'nipple', '
                'pussy fart', 'pussy palace', 'pussy palace', 'pussylicking', 'pussypounder', 'pussys', 'raging boner', 'rape', 
                'raped', 'raper', 'raping', 'rapist', 'rectal', 'rectum', 'rectus', 'reefer', 'reetard', 'reich', 'renob', 'retard',
                'retarded', 's hit', 'shit', 'scum', 'seaman', 'seamen', 'seduce', 'seks', 'semen', 'sex', 'sexo', 'sexual', 'sexy', 
-               'shit', 'shit', 'shit', 'shit', 'shaved pussy', 'shemale', 'shit', 'shit', 'shit', 'shit ass', 'shit fucker', 
+               'shit', 'shit', 'shit', 'shit', 'shaved pussy', 'shemale', 'shit', 'shit', 'shit', 'shit ass', 'shit fucker']
+filtered_words6 = [
                'shit fucker', 'shitass', 'shitbag', 'shitbagger', 'shitblimp', 'shitbrains', 'shitbreath', 'shitcanned', 'shitcunt', 
                'shitdick', 'shit', 'shiteater', 'shited', 'shitey', 'shitface', 'shitfaced', 'shitfuck', 'shitfull', 'shithead', 
                'shitheads', 'shithole', 'shithouse', 'shiting', 'shitings', 'shits', 'shitspitter', 'shitstain', 'shitt', 'shitted', 
@@ -126,11 +131,9 @@ class filter(commands.Cog):
 
         
     @commands.Cog.listener()
-    async def on_message(self, msg):
-        for word in filtered_words:
-            if word in msg.content:
-                await msg.delete()
-
+    async def on_message(self, 	msg	):
+        if msg.content.lower() in filtered_words or filtered_words2 or filtered_words3 or filtered_words4 or filtered_words5 or filtered_words6:
+             await msg.delete()
 
 
 def setup(bot):
