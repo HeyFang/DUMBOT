@@ -132,21 +132,37 @@ async def unmute(ctx, member: discord.Member):
 
 
 
+#cmd serverinfo imported from alice...
+@bot.command()
+async def serverinfo(ctx):
+    name = str(ctx.guild.name)
+    description = str(ctx.guild.description)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    owner = str(ctx.guild.owner)
+    owner = ctx.guild.owner_id
+    owner = await bot.fetch_user(owner)
+    id = str(ctx.guild.id)
+    region = str(ctx.guild.region)
+    memberCount = str(ctx.guild.member_count)
+    role_count = len(ctx.guild.roles)
+    icon = str(ctx.guild.icon_url)
+           
+    embed = discord.Embed(
+        title=name + " Server Information",
+        description=description,
+        color=0x11aaf5
+        )
+    embed.set_thumbnail(url=icon)
+    embed.add_field(name="Owner", value=owner, inline=True)
+    embed.add_field(name="Server ID", value=id, inline=True)
+    embed.add_field(name="Region", value=region, inline=True)
+    embed.add_field(name="Member Count", value=memberCount, inline=True)
+    embed.add_field(name='Created At', value=ctx.guild.created_at.__format__('%A, %d. %B %Y @ %H:%M:%S'), inline=False)
+    embed.add_field(name='Number of roles', value=str(role_count), inline=True)
+    embed.add_field(name='Highest role', value=ctx.guild.roles[-2], inline=True)
+    embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+    embed.set_footer(text=bot.user.name, icon_url=bot.user.avatar_url)
+    await ctx.send(embed=embed)
 
 
 
@@ -154,3 +170,5 @@ async def unmute(ctx, member: discord.Member):
 
 bot.run(token)
 #A dumbot made by fang n pranav...
+
+
