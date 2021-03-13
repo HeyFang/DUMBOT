@@ -13,7 +13,7 @@ class administrator_cmd(commands.Cog):
 	@commands.has_permissions(administrator = True)
 	async def clear(self , ctx , amount = 5):
 		"""clears the chat """
-		await ctx.channel.purge(limit=amount)
+		await ctx.channel.purge(limit=amount+1)
 		
 		
 		
@@ -81,7 +81,7 @@ class administrator_cmd(commands.Cog):
 		 description = f" *:white_check_mark: **{member.mention}** was muted for reason {reason}*",
 		  color = discord.Color.green())
 		
-		#await member.add_roles(mutedRole, reason=reason)
+		await member.add_roles(mutedRole, reason=reason)
 		#channel = await member.create_dm()
 		#await channel.send(f"You were muted in the server {guild.name} for {reason}")
 		await ctx.send(embed=em)
