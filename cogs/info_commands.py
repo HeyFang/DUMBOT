@@ -33,10 +33,11 @@ class handle_info(commands.Cog):
 		
 	@commands.command()
 	async def serverinfo(self , ctx):
+		
 		name = str(ctx.guild.name)
 		description = str(ctx.guild.description)
+		owner = str(ctx.guild.owner)
 		
-		owner = ctx.guild.owner
 		
 		
 		id = str(ctx.guild.id)
