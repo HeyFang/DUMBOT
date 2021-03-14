@@ -9,11 +9,11 @@ class administrator_cmd(commands.Cog):
 		self.bot = bot 		
 		
 		
-	@commands.command()
-	@commands.has_permissions(administrator = True)
+	@commands.command(aliases=['purge'])
+	@commands.has_permissions(manage_messages = True)
 	async def clear(self , ctx , amount = 5):
 		"""clears the chat """
-		await ctx.channel.purge(limit=amount)
+		await ctx.channel.purge(limit=amount+1)
 		
 		
 		
@@ -64,7 +64,7 @@ class administrator_cmd(commands.Cog):
 	
 	
 	@commands.command(description="Mutes the specified user.")
-	@commands.has_permissions(manage_messages=True)
+	@commands.has_permissions(kick_members=True)
 	async def mute(self , ctx, member: discord.Member, *, reason=None):
 		"""mutes the user """
 		
@@ -81,9 +81,9 @@ class administrator_cmd(commands.Cog):
 		 description = f" *:white_check_mark: **{member.mention}** was muted for reason {reason}*",
 		  color = discord.Color.green())
 		
-		#await member.add_roles(mutedRole, reason=reason)
-		#channel = await member.create_dm()
-		#await channel.send(f"You were muted in the server {guild.name} for {reason}")
+		await member.add_roles(mutedRole, reason=reason)
+		channel = await member.create_dm()
+		await channel.send(f"You were muted in the server {guild.name} for {reason}")
 		await ctx.send(embed=em)
 		
 		

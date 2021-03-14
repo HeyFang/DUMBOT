@@ -39,6 +39,7 @@ async def loadcog(ctx, cog):
 
 
 @bot.command()
+@commands.has_permissions(administrator=True)
 async def unloadcog(ctx, cog):
     """ unload cogs handler """
     bot.unload_extension(f"cogs.{cog}")

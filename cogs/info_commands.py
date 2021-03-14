@@ -8,7 +8,7 @@ class handle_info(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot 
 		
-	@commands.command(aliases=['botinfo'])
+	@commands.command(aliases=['botinfo','info'])
 	async def do_botinfo(self , ctx):
 		embed=discord.Embed(title="PALICE: **__P__**ranav n **__A__**ryan's **__L__**earned **__I__**ntellectual **__C__**ollaberating **__E__**mulator.", 
 	        url="http://cyclones.ml/", 
@@ -22,7 +22,7 @@ class handle_info(commands.Cog):
 		embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/817402985859514399/1233c748fb8bf08ea67cb42632f02093.webp")
 	
 		embed.add_field(name="Version", value="1.0.0", inline=False) 
-		embed.add_field(name="Creator", value="Fang", inline=True)
+		embed.add_field(name="Creator", value="Aryan", inline=True)
 		embed.add_field(name="Co-creator", value="Pranav", inline=True)
 		embed.add_field(name="Invite-Link", value="Not a public bot yet ;)", inline=False)
 		embed.add_field(name="Help Server", value="https://discord.gg/FCcKuWB8x6", inline=False)
@@ -84,6 +84,10 @@ class handle_info(commands.Cog):
         
         
         
+
+
+
+    
         
         
 
