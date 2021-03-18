@@ -117,18 +117,14 @@ filtered_words = ['kamine', 'bitch', 'xxx', 'erotic', 'shit', 'bra', 'nipple', '
 
 
 
-
 class filter(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
+	def __init__(self, bot):
+		self.bot = bot
         
-
-
-        
-    @commands.Cog.listener()
-    async def on_message(self, 	msg	):
-        if msg.content.lower() in filtered_words:
-             await msg.delete()
+	@commands.Cog.listener()
+	async def on_message(self, msg):
+		if msg.content.lower() in filtered_words:
+			await msg.delete()
 
 
 def setup(bot):
