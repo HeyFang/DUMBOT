@@ -19,13 +19,16 @@ class administrator_cmd(commands.Cog):
 		
 	@commands.command()
 	@commands.has_permissions(ban_members = True)
-	async def ban( self ,ctx,member : discord.Member,*,reason= "No reason provided."):
+	async def ban( self ,ctx,member : discord.Member=None,*,reason= "No reason provided."):
 		"""bans the client"""
-		embed = discord.Embed(title = None,
-	     description = f" *:white_check_mark: **{member.name}** was banned from {ctx.guild.name}, because of, {reason}*",
-	      color = discord.Color.green())
-		await member.ban(reason=reason)
-		await ctx.send(embed=embed)
+		if member is None:
+			await ctx.send("Dumbo use```ban <member> <reason>```")
+		else:
+			embed = discord.Embed(title = None,
+	     	description = f" *:white_check_mark: **{member.name}** was banned from {ctx.guild.name}, because of, {reason}*",
+	      	color = discord.Color.green())
+			await member.ban(reason=reason)
+			await ctx.send(embed=embed)
 		
 		
 		
@@ -53,23 +56,28 @@ class administrator_cmd(commands.Cog):
 		
 	@commands.command()
 	@commands.has_permissions(kick_members = True)
-	async def kick(self , ctx,member : discord.Member,*,reason= "No reason provided."):
-		embed = discord.Embed(title = None,
-		description = f" *:white_check_mark: **{member.name}** was kicked from {ctx.guild.name} of, {reason}*",
-		color = discord.Color.green())
+	async def kick(self , ctx,member : discord.Member=None,*,reason= "No reason provided."):
+		if member is None:
+			await ctx.send("Dumbo use ```kick <member> <reason>```")
+		else:
+			embed = discord.Embed(title = None,
+			description = f" *:white_check_mark: **{member.name}** was kicked from {ctx.guild.name} of, {reason}*",
+			color = discord.Color.green())
+			await member.kick(reason=reason)
+			await ctx.send(embed=embed)
+
 		
-		await ctx.send(embed=embed)
-		
-		await member.kick(reason=reason)
 	
 	
 	@commands.command(description="Mutes the specified user.")
 	@commands.has_permissions(kick_members=True)
-	async def mute(self , ctx, member: discord.Member, *, reason=None):
+	async def mute(self , ctx, member: discord.Member=None, *, reason=None):
 		"""mutes the user """
-		
-		guild = ctx.guild
-		mutedRole = discord.utils.get(guild.roles, name="Muted")
+		if member is None:
+			await ctx.send("Dumbo use ```mute <member> <reason>```")
+		else:
+			guild = ctx.guild
+			mutedRole = discord.utils.get(guild.roles, name="Muted")
 		
 		
 		if not mutedRole:

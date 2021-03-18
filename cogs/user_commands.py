@@ -27,9 +27,7 @@ class avatar(commands.Cog):
 	async def ping(self , ctx):
 		""" Bot latency cheack """
 		latency = round(self.bot.latency*1000, 1)
-		em = discord.Embed(color=0x11aaf5  )
-		em.add_field(name = 'latency',  value=f" pong!  , {latency}", inline=False)
-		await ctx.send(embed = em)
+		await ctx.send(f"Pong! `{latency}`")
 
 
 def setup(bot):

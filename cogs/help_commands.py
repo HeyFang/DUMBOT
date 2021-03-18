@@ -30,5 +30,11 @@ class handle_help(commands.Cog):
         embed.add_field(name="Coming soon...", value="*Meme command*, *repeatmessage command which would repeat triggered msg after given time interval*, *Welcome messages*...", inline=False)
         await ctx.send(embed=embed)
 
+
+
+
 def setup(bot):
     bot.add_cog(handle_help(bot))
+
+
+    
