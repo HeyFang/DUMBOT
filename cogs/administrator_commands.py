@@ -90,13 +90,10 @@ class administrator_cmd(commands.Cog):
 		  color = discord.Color.green())
 		
 		await member.add_roles(mutedRole, reason=reason)
-<<<<<<< HEAD
 		channel = await member.create_dm()
 		await channel.send(f"You were muted in the server {guild.name} for {reason}")
-=======
-		#channel = await member.create_dm()
-		#await channel.send(f"You were muted in the server {guild.name} for {reason}")
->>>>>>> 19255dfd50d0533c3f148cc05244d56630faca08
+		channel = await member.create_dm()
+		await channel.send(f"You were muted in the server {guild.name} for {reason}")
 		await ctx.send(embed=em)
 		
 		
