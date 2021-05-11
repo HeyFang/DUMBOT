@@ -12,11 +12,11 @@ from handlers.handlefiles import loadconfig
 
 bot = Bot(command_prefix = get_server_prefix)
 
-
 @bot.event
 async def on_ready():
     print(f"{bot.user.name} is online")
     await add_cogs()
+    await bot.change_presence(activity=discord.Game(name="cyclones.ml"))
 
 
 async def add_cogs():
