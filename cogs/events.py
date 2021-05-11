@@ -1,7 +1,8 @@
-from discord.ext import commands
-from handlers.handlefiles import *
-
 import discord
+import asyncio
+
+from discord.ext import commands
+from handlers.handlefiles import load, commit
 
 
 

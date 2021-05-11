@@ -1,11 +1,12 @@
 import discord
+import asyncio
 
 from discord.ext import commands
 from handlers.handlefiles import load, commit
 
 
 
-class administrator_cmd(commands.Cog):
+class Administrator(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
@@ -28,5 +29,6 @@ class administrator_cmd(commands.Cog):
 
 
 
+
 def setup(bot):
-    bot.add_cog(administrator_cmd(bot))
+    bot.add_cog(Administrator(bot))

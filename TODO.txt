@@ -1,0 +1,3 @@
+-help command
+-info, serveronfo
+-event errors

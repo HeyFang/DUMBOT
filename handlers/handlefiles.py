@@ -1,5 +1,19 @@
 import json
 
+
+
+def loadconfig():
+    with open("./config.json") as f:
+        configs = json.load(f)
+    return configs
+
+
+def load_bad_words():
+    with open("data/bad_words.json") as f:
+        data = json.load(f)
+    return data["BadWords"]
+
+
 def get_server_prefix(client, message):
     with open("data/prefixes.json") as f:
         prefixes = json.load(f)

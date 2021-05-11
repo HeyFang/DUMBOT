@@ -1,0 +1,5 @@
+# snowman1711 11-5-2021
+
+- Lot of code clean up
+- Rmeoved old info commands
+- can chamge prefix for different severs

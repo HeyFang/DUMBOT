@@ -1,11 +1,12 @@
 import discord
+import asyncio
 
-from discord.ext import commands, tasks
+from discord.ext import commands
 from discord.utils import get
 
 
 
-class roles(commands.Cog):
+class Roles(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -28,4 +29,4 @@ class roles(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(roles(bot))
+    bot.add_cog(Roles(bot))
